@@ -3,3 +3,4 @@ credenziali.py
 .idea
 
 .log
+__pycache__/funzioni_database.cpython-312.pyc
