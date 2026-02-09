@@ -86,3 +86,5 @@ def esegui_query_select_param(query, param):
     finally:
         cursor.close()
         connessione.close()
+
+#commneto aggiunto
