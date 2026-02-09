@@ -1,39 +1,56 @@
+import os
 from funzioni_services import inserisci_fattura, mostra_fatture
 
+
+def pulisci_schermo():
+    # Pulisce la console (funziona su Mac, Windows e Linux)
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def menu():
-    #permette di salvare le fatture dopo averne chiesto i campi da riempire
-    print("1) Salva fattura")
+    print("\n" + "=" * 40)
+    print("      📂 GESTIONALE FATTURE v1.0")
+    print("=" * 40)
+    print("  [1] 📥 Salva nuova fattura")
+    print("  [2] 📋 Mostra tutte le fatture")
+    print("  [0] 🚪 Termina programma")
+    print("=" * 40)
 
-    #mostra tutte le fatture nel db
-    print("2) Mostra fatture")
-
-    print("0) Termina")
 
 def scelta():
     while True:
         menu()
         try:
-
-
-            opzione = int(input("Scelta: "))
-
-
+            opzione = int(input("\n👉 Scelta: "))
 
             if opzione == 1:
+                pulisci_schermo()
+                print("--- INSERIMENTO FATTURA ---")
                 inserisci_fattura()
+                input("\nPremi Invio per tornare al menu...")
+
             elif opzione == 2:
+                pulisci_schermo()
+                print("--- ARCHIVIO FATTURE ---")
                 mostra_fatture()
+                input("\nPremi Invio per tornare al menu...")
+
             elif opzione == 0:
+                print("\n👋 Chiusura in corso... Arrivederci!")
                 break
+
             else:
-                print("Opzione non valida")
+                print("\n⚠️  Opzione non valida! Scegli tra 0, 1 o 2.")
+
         except ValueError:
-            print("Campo non accettato")
+            print("\n❌ Campo non accettato: inserisci un NUMERO.")
         except EOFError:
-            print("WTF? CTRL + d ma cosa combini")
+            print("\n\nWTF? CTRL + D? Ma cosa combini! Uscita forzata...")
             break
-        except:
-            print("Errore critico, non so perché sei qui")
+        except Exception as e:
+            print(f"\n☢️  Errore critico: {e}")
+            break
+
 
 if __name__ == '__main__':
     scelta()
