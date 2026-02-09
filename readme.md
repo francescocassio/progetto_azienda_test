@@ -5,7 +5,7 @@ Un'applicazione Python per la gestione completa delle fatture di vendita.
 ## 🚀 Come avviare il progetto (Quick Start)
 Segui questi tre comandi rapidi per preparare l'ambiente:
 
-1. **Crea la venv:** `python3 -m venv venv` (su Windows usa `python`)
+1. **Crea la venv:** `python3 -m venv venv` (su Windows usa `python`) se non lo trovare usare py -m venv venv
 2. **Attivala:** - Mac/Linux: `source venv/bin/activate`
    - Win: `.\venv\Scripts\activate`
 3. **Installa librerie:** `pip install -r requirements.txt`
