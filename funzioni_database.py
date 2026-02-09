@@ -1,5 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
+
+#ciao son un commento
 def create_connection():
     connection = None
     try:

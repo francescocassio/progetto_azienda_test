@@ -28,6 +28,8 @@ def main():
 
     print("PROGETTO UFFICIALE V2")
 
+    print("nuova aggiunta di test")
+
 
 
     # scelta()
