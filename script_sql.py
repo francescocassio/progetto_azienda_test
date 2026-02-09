@@ -29,3 +29,18 @@ END$$
 DELIMITER ;
 """
 
+creazione_trigger_arrotonda_iva_imponibile_update = """
+DELIMITER $$
+
+CREATE TRIGGER arrotonda_fatture_update
+BEFORE UPDATE ON fatture
+FOR EACH ROW
+BEGIN
+    SET NEW.imponibile = ROUND(NEW.imponibile, 2);
+    SET NEW.iva = ROUND(NEW.iva, 2);
+
+    IF ROUND(NEW.imponibile + NEW.iva, 2) <> NEW.importo THEN
+        SET NEW.importo = ROUND(NEW.imponibile + NEW.iva, 2);
+    END IF;
+END$$
+
